@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+   db:
+     image: mysql
+     volumes:
+       - ./CreateTable.sql:/docker-entrypoint-initdb.d/CreateTable.sql
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: ChiefCommander
+       MYSQL_DATABASE: COMPLAINTS
+       MYSQL_USER: ChiefCommander
+       MYSQL_PASSWORD: ChiefCommander
+     ports:
+       - 3306:3306
+   app:
+     build: .
+     depends_on:
+       - db
+     ports:
+       - 3333:80
+     
