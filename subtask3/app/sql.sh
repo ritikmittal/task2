@@ -1,2 +1,2 @@
 #!/bin/bash
-mysql -hlocalhost -P3306 -uroot -pChiefCommander --protocol=tcp
+mysqldump -hlocalhost -P3306 -uroot -pChiefCommender --protocol=tcp COMPLAINTS COMPLAINTS > /home/ChiefCommander/complaints.sql
